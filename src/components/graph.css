@@ -1,0 +1,22 @@
+svg line.track {
+   stroke-opacity: 0.4;
+   stroke: #000;
+   stroke-width: 10px;
+}
+svg line.track-inset {
+   stroke: steelblue;
+   stroke-width: 8px;
+}
+svg line.track-overlay {
+   stroke: #ccc;
+   stroke-width: 40px;
+   stroke-opacity: 0;
+   cursor: crosshair;
+}
+svg .handle {
+   fill: red;
+   stroke: #000;
+}
+svg line.track-overlay, svg line.track, svg line.track-inset {
+   stroke-linecap: round;
+}
