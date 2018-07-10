@@ -275,6 +275,8 @@ class ForceDChart extends Component{
       simulation2.force("link")
       .links(edges);
 
+      simulation2.alphaTarget(0.3).restart();
+
       function ticked2() { // 更新力学图
         link
             .attr("x1", function(d) { return d.source.x; })
@@ -444,24 +446,24 @@ class ForceDChart extends Component{
             slider.interrupt();
         }).on('start drag', function () {
             draggedranger(d3.event.x);
-            // let nodess = [];
-            // let mapdata = new Set();
-            // let edgess = data.links.filter(function (e, i) {
-            //   if (e.year == xAxisValue) {
-            //     mapdata.add(e.source.id);
-            //     mapdata.add(e.target.id);
-            //     return e;
-            //   }
-            // })
-            // data.nodes.forEach((a) => {
-            //   if (isInArray([...mapdata], a.id)) {
-            //     nodess.push(a);
-            //   }
-            // })
-            // if (edgess.length > 0 && nodess.length > 0) {
-            //
-            //   draw(edgess, nodess);
-            // }
+            let nodess = [];
+            let mapdata = new Set();
+            let edgess = data.links.filter(function (e, i) {
+              if (e.year == xAxisValue) {
+                mapdata.add(e.source.id);
+                mapdata.add(e.target.id);
+                return e;
+              }
+            })
+            data.nodes.forEach((a) => {
+              if (isInArray([...mapdata], a.id)) {
+                nodess.push(a);
+              }
+            })
+            if (edgess.length > 0 && nodess.length > 0) {
+
+              draw(edgess, nodess);
+            }
         });
 
     // this is the main bar with a stroke (applied through CSS)
@@ -494,24 +496,24 @@ class ForceDChart extends Component{
             let i = d3.interpolate(0, 10);
             return function (t) {
                 draggedranger(xScale(i(t)));
-                // let nodess = [];
-                // let mapdata = new Set();
-                // let edgess = data.links.filter(function (e, i) {
-                //   if (e.year == xAxisValue) {
-                //     mapdata.add(e.source.id);
-                //     mapdata.add(e.target.id);
-                //     return e;
-                //   }
-                // })
-                // data.nodes.forEach((a) => {
-                //   if (isInArray([...mapdata], a.id)) {
-                //     nodess.push(a);
-                //   }
-                // })
-                // if (edgess.length > 0 && nodess.length > 0) {
-                //
-                //   draw(edgess, nodess);
-                // }
+                let nodess = [];
+                let mapdata = new Set();
+                let edgess = data.links.filter(function (e, i) {
+                  if (e.year == xAxisValue) {
+                    mapdata.add(e.source.id);
+                    mapdata.add(e.target.id);
+                    return e;
+                  }
+                })
+                data.nodes.forEach((a) => {
+                  if (isInArray([...mapdata], a.id)) {
+                    nodess.push(a);
+                  }
+                })
+                if (edgess.length > 0 && nodess.length > 0) {
+
+                  draw(edgess, nodess);
+                }
             }
         });
 
