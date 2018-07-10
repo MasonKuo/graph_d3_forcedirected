@@ -460,10 +460,9 @@ class ForceDChart extends Component{
                 nodess.push(a);
               }
             })
-            if (edgess.length > 0 && nodess.length > 0) {
-
+            // if (edgess.length > 0 && nodess.length > 0) {
               draw(edgess, nodess);
-            }
+            // }
         });
 
     // this is the main bar with a stroke (applied through CSS)
@@ -510,10 +509,9 @@ class ForceDChart extends Component{
                     nodess.push(a);
                   }
                 })
-                if (edgess.length > 0 && nodess.length > 0) {
-
+                // if (edgess.length > 0 && nodess.length > 0) {
                   draw(edgess, nodess);
-                }
+                // }
             }
         });
 
