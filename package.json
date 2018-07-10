@@ -1,6 +1,7 @@
 {
   "name": "reactdemo",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "d3": "^4.11.0",
